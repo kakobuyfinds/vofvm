@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#103f33">
+<title>LoveGoBuy spreadsheet | Product Finds & Buying Checklist</title>
+<meta name="description" content="Explore LoveGoBuy spreadsheet finds with real HipobuyFind catalog products, category filters, reference prices, a budget planner and a practical buying checklist.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LoveGoBuy spreadsheet | Find. Compare. Plan.">
+<meta property="og:description" content="Browse real product references and compare the details that matter before placing an order.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<!--
+Filename: index.html
+Deployment: add a self-referencing canonical and og:url using this page's actual public HTTPS URL.
+Indexing submission has NOT been completed: no deployment URL or verified webmaster account was supplied.
+After deployment, verify the domain in Google Search Console and Bing Webmaster Tools,
+submit a sitemap containing the deployed URL, and request indexing through their tools.
+A standalone HTML file cannot verify ownership, submit authenticated requests, or guarantee indexing.
+
+Research: public search results were reviewed, not a verified location-specific Google ranking report.
+Reference pages:
+https://lovegobuyguide.com/
+https://lovegobuywithqc.com/
+https://lovegobuysheet.org/
+Applied improvements: static readable catalog, source identifiers, dated price snapshot,
+local filters, transparent outbound destination, practical comparison checklist and budget inputs.
+Product source: https://hipobuyfind.com/
+No official partnership, independent QC verification, live stock or live pricing is claimed.
+-->
+<style>
+:root{--bg:#f5f6f0;--ink:#163c32;--muted:#58675e;--green:#103f33;--lime:#d5f28a;--line:#dce2d7;--white:#fff;--radius:22px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+a{color:inherit;text-underline-offset:4px}
+button,input,select{font:inherit}
+button,a,input,select,summary{touch-action:manipulation}
+:focus-visible{outline:3px solid #ae6800;outline-offset:4px}
+.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+.skip{position:absolute;left:15px;top:-100px;background:white;padding:10px;z-index:9}
+.skip:focus{top:10px}
+header{border-bottom:1px solid var(--line);background:var(--bg)}
+.header-inner{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:19px;font-weight:800;text-decoration:none;letter-spacing:-.6px}
+.brand span{display:inline-grid;place-items:center;width:35px;height:35px;background:var(--green);color:var(--lime);border-radius:10px;margin-right:9px}
+nav{display:flex;gap:22px;font-size:14px}
+nav a{text-decoration:none}
+.hero{padding:72px 0 58px;display:grid;grid-template-columns:1.3fr .7fr;gap:52px;align-items:center}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(43px,6.2vw,78px);line-height:1.04;letter-spacing:-3px;margin:20px 0 24px}
+h1 em{font-style:normal;color:#62813f}
+.lead{font-size:18px;max-width:650px;color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:27px 0 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:49px;padding:12px 23px;border:1px solid var(--green);border-radius:100px;background:var(--green);color:white;text-decoration:none;font-weight:700;cursor:pointer}
+.btn.alt{background:transparent;color:var(--green)}
+.small{font-size:13px;color:var(--muted)}
+.hero-panel{background:var(--green);color:white;border-radius:var(--radius);padding:32px;position:relative;overflow:hidden}
+.hero-panel:after{content:"";position:absolute;border:1px solid #ffffff24;width:220px;height:220px;border-radius:50%;right:-100px;top:-100px;pointer-events:none}
+.hero-panel h2{font-size:28px;margin:14px 0 24px;line-height:1.2}
+.hero-panel p{color:#deebdf}
+.checkline{padding:13px 0;border-top:1px solid #ffffff30;display:flex;gap:15px}
+.checkline b{color:var(--lime)}
+.strip{display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13px}
+section{padding:56px 0;scroll-margin-top:25px}
+.section-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:22px}
+h2{font-size:clamp(27px,3.5vw,39px);line-height:1.15;letter-spacing:-1px;margin:0 0 14px}
+h3{line-height:1.35}
+.section-head p{margin:0;max-width:700px;color:var(--muted)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:100px;padding:7px 12px;font-size:12px;white-space:nowrap}
+.tools{display:grid;grid-template-columns:1fr 190px 190px;gap:14px;margin:25px 0 12px}
+label{font-size:13px;font-weight:700;display:block}
+input,select{width:100%;border:1px solid #bcc8bd;border-radius:11px;background:white;color:var(--ink);min-height:47px;padding:10px 13px;margin-top:7px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:20px}
+.card{background:white;border:1px solid var(--line);border-radius:17px;overflow:hidden;display:flex;flex-direction:column}
+.photo{background:#eceee7;aspect-ratio:4/3;overflow:hidden;position:relative}
+.photo img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .25s}
+.card:hover .photo img{transform:scale(1.035)}
+.card-body{padding:21px;display:flex;flex-direction:column;flex:1}
+.category{font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted)}
+.card h3{font-size:18px;margin:9px 0 15px}
+.price{font-size:21px;font-weight:800;margin-top:auto}
+.price small{font-size:13px;font-weight:400;color:var(--muted)}
+.meta{font-size:12px;color:var(--muted);margin:7px 0 15px}
+.card-link{font-size:13px;font-weight:700;text-decoration:none;border-top:1px solid var(--line);padding-top:13px}
+.note{padding:17px 20px;background:#eaf0df;border-radius:12px;font-size:13px;margin-top:23px}
+.empty{padding:30px;text-align:center;background:white;border:1px dashed var(--line);border-radius:15px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.box{padding:30px;background:white;border:1px solid var(--line);border-radius:var(--radius)}
+.steps{list-style:none;counter-reset:step;padding:0;margin:24px 0 0}
+.steps li{counter-increment:step;position:relative;padding:0 0 24px 45px}
+.steps li:before{content:counter(step);position:absolute;left:0;top:1px;width:29px;height:29px;border-radius:50%;background:#e9f1db;display:grid;place-items:center;font-weight:700}
+.steps strong{display:block}
+.steps p{margin:5px 0;color:var(--muted);font-size:14px}
+.table-scroll{overflow:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:14px 10px;border-bottom:1px solid var(--line)}
+th{background:#edf2e7}
+.calc-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.total{margin-top:22px;background:var(--green);color:white;border-radius:15px;padding:20px}
+.total output{display:block;font-size:36px;font-weight:800;line-height:1.3}
+details{border-bottom:1px solid var(--line);padding:19px 0}
+summary{font-size:17px;font-weight:700;cursor:pointer}
+details p{max-width:850px;color:var(--muted);margin-bottom:4px}
+.bottom{background:var(--green);color:white;padding:38px;border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;gap:28px}
+.bottom p{color:#dce8dd;margin:0}
+.bottom .btn{background:var(--lime);border-color:var(--lime);color:var(--green);white-space:nowrap}
+footer{border-top:1px solid var(--line);padding:28px 0 38px;font-size:12px;color:var(--muted)}
+[hidden]{display:none!important}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:28px;padding-top:42px}.hero-panel{max-width:none}.grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}.tools{grid-template-columns:1fr 1fr}.tools label:first-child{grid-column:1/-1}.strip{flex-wrap:wrap}.bottom{align-items:start;flex-direction:column}}
+@media(max-width:540px){.wrap{width:calc(100% - 28px)}.header-inner{min-height:75px;flex-wrap:wrap;gap:10px;padding:15px 0}nav{gap:17px;font-size:12px}.brand{font-size:17px}h1{letter-spacing:-2px}.grid{gap:12px}.card-body{padding:13px}.card h3{font-size:15px}.price{font-size:18px}.price small{display:block}.tools{gap:10px;grid-template-columns:1fr}.tools label:first-child{grid-column:auto}.section-head{align-items:start;flex-direction:column;gap:8px}.box{padding:22px}.calc-fields{grid-template-columns:1fr}.bottom{padding:25px}section{padding:38px 0}.actions .btn{width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.photo img{transition:none}}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"LoveGoBuy spreadsheet | Product Finds & Buying Checklist",
+  "description":"Independent product discovery guide featuring a dated selection from the HipobuyFind catalog, comparison guidance and a budget planner.",
+  "inLanguage":"en",
+  "mainEntity":{
+    "@type":"ItemList",
+    "name":"Selected HipobuyFind catalog references",
+    "numberOfItems":6,
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Black Canvas Low-Top Sneakers with Gum Sole","url":"https://hipobuyfind.com/goods-148188.html"},
+      {"@type":"ListItem","position":2,"name":"Fleece-Lined Hoodie","url":"https://hipobuyfind.com/goods-154917.html"},
+      {"@type":"ListItem","position":3,"name":"Graphic Short-Sleeve T-Shirt","url":"https://hipobuyfind.com/goods-154920.html"},
+      {"@type":"ListItem","position":4,"name":"Hooded Quick-Dry Jacket","url":"https://hipobuyfind.com/goods-154851.html"},
+      {"@type":"ListItem","position":5,"name":"Beige Quilted Drawstring Mini Backpack, Style 6302-1","url":"https://hipobuyfind.com/goods-154850.html"},
+      {"@type":"ListItem","position":6,"name":"Multi-Pocket Flap Backpack Color Collection","url":"https://hipobuyfind.com/goods-154846.html"}
+    ]
+  }
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/vofvm/">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap header-inner">
+    <a class="brand" href="https://hipobuyfind.com"><span aria-hidden="true">L</span>LoveGoBuy spreadsheet</a>
+    <nav aria-label="Main navigation">
+      <a href="#catalog">Product finds</a>
+      <a href="#guide">Buying guide</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Independent finds & shopping notes</div>
+      <h1>LoveGoBuy<br><em>spreadsheet.</em></h1>
+      <p class="lead">Find your next shortlist. Explore clothing, shoes and bags from a real product catalog, compare reference prices, and plan the checks that come before checkout.</p>
+      <div class="actions">
+        <a class="btn" href="https://hipobuyfind.com">LoveGoBuy spreadsheet <span aria-hidden="true">&nbsp;↗</span></a>
+        <a class="btn alt" href="https://hipobuyfind.com">Buy it now <span aria-hidden="true">&nbsp;↗</span></a>
+      </div>
+      <p class="small">Both buttons open HipobuyFind for product discovery. This independent page is not operated by LoveGoBuy and does not process orders or payments.</p>
+    </div>
+    <aside class="hero-panel" aria-label="Shopping checklist">
+      <div class="eyebrow">A better shortlist starts here</div>
+      <h2>Look beyond<br>the item price.</h2>
+      <div class="checkline"><b>01</b><span>Match the exact listing and option</span></div>
+      <div class="checkline"><b>02</b><span>Compare measurements and materials</span></div>
+      <div class="checkline"><b>03</b><span>Include shipping in your budget</span></div>
+      <p class="small">A catalog image is a starting point. It does not establish quality, authenticity or current availability.</p>
+    </aside>
+  </div>
+
+  <div class="strip" aria-label="Catalog information">
+    <span>Source: HipobuyFind</span>
+    <span>6 selected catalog references</span>
+    <span>Snapshot: <time datetime="2026-11-19">19 November 2026</time></span>
+    <span>No account needed to browse this page</span>
+  </div>
+
+  <section aria-labelledby="intro-title">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">The quick answer</div>
+        <h2 id="intro-title">What is a LoveGoBuy spreadsheet?</h2>
+      </div>
+      <div>
+        <p>A LoveGoBuy spreadsheet is a product discovery list used to organize finds before researching an order through a shopping agent. Useful entries identify the product, source listing, available options and reference price.</p>
+        <p class="small">This page uses a selection from HipobuyFind. Inclusion does not confirm that LoveGoBuy accepts an item or supports its source link. Check the original listing and your chosen platform before placing an order.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog" aria-labelledby="catalog-title">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">The product edit</div>
+        <h2 id="catalog-title">Browse the real catalog.</h2>
+        <p>Six source-listed products with original images, item identifiers and reference prices. Product titles are shortened for readability.</p>
+      </div>
+      <span class="pill">Static snapshot · not a live feed</span>
+    </div>
+
+    <div class="tools" id="tools" hidden>
+      <label>Search this selection
+        <input id="search" type="search" placeholder="Try hoodie, canvas, backpack or item ID">
+      </label>
+      <label>Category
+        <select id="category">
+          <option value="all">All categories</option>
+          <option value="Shoes">Shoes</option>
+          <option value="Hoodies">Hoodies</option>
+          <option value="T-Shirts">T-Shirts</option>
+          <option value="Jackets">Jackets</option>
+          <option value="Bags">Bags</option>
+        </select>
+      </label>
+      <label>Sort by
+        <select id="sort">
+          <option value="default">Original selection</option>
+          <option value="low">CNY price: low to high</option>
+          <option value="high">CNY price: high to low</option>
+        </select>
+      </label>
+    </div>
+    <p id="result-count" class="small" role="status" aria-live="polite">6 products in this selection</p>
+
+    <div class="grid" id="products">
+      <article class="card" data-category="Shoes" data-price="450" data-id="148188">
+        <div class="photo"><img src="https://si.geilicdn.com/open1700230128-1234478995-6d07000001987b436b390a22d249_800_800.jpg" alt="Black canvas low-top sneakers with gum sole" width="800" height="800" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <span class="category">Shoes</span>
+          <h3>Black Canvas Low-Top Sneakers with Gum Sole</h3>
+          <div class="price">¥450.00 <small>≈ US$62.50</small></div>
+          <p class="meta">Source item #148188 · Reference price</p>
+          <a class="card-link" href="https://hipobuyfind.com/goods-148188.html">View source listing ↗</a>
+        </div>
+      </article>
+      <article class="card" data-category="Hoodies" data-price="170" data-id="154917">
+        <div class="photo"><img src="https://si.geilicdn.com/open1792148229-1234478995-76d100000196f413b04f0a8133b0_800_800.jpg" alt="Fleece-lined hoodie from the source catalog" width="800" height="800" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <span class="category">Hoodies</span>
+          <h3>Fleece-Lined Hoodie</h3>
+          <div class="price">¥170.00 <small>≈ US$23.61</small></div>
+          <p class="meta">Source item #154917 · Reference price</p>
+          <a class="card-link" href="https://hipobuyfind.com/goods-154917.html">View source listing ↗</a>
+        </div>
+      </article>
+      <article class="card" data-category="T-Shirts" data-price="105" data-id="154920">
+        <div class="photo"><img src="https://si.geilicdn.com/open1792148229-1234478995-09a000000196efa4b3cc0aa0834c_800_800.jpg" alt="Graphic short-sleeve T-shirt from the source catalog" width="800" height="800" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <span class="category">T-Shirts</span>
+          <h3>Graphic Short-Sleeve T-Shirt</h3>
+          <div class="price">¥105.00 <small>≈ US$14.58</small></div>
+          <p class="meta">Source item #154920 · Reference price</p>
+          <a class="card-link" href="https://hipobuyfind.com/goods-154920.html">View source listing ↗</a>
+        </div>
+      </article>
+      <article class="card" data-category="Jackets" data-price="157.14" data-id="154851">
+        <div class="photo"><img src="https://si.geilicdn.com/wdseller1489596767-2b4400000193c17bed690a210139_697_1024.jpg" alt="Hooded quick-dry jacket from the source catalog" width="697" height="1024" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <span class="category">Jackets</span>
+          <h3>Hooded Quick-Dry Jacket</h3>
+          <div class="price">¥157.14 <small>≈ US$21.83</small></div>
+          <p class="meta">Source item #154851 · Reference price</p>
+          <a class="card-link" href="https://hipobuyfind.com/goods-154851.html">View source listing ↗</a>
+        </div>
+      </article>
+      <article class="card" data-category="Bags" data-price="340" data-id="154850">
+        <div class="photo"><img src="https://si.geilicdn.com/pcitem901921648802-7dbe000001955a1df4c10a210349_1080_1080.jpg" alt="Beige quilted drawstring mini backpack, style 6302-1" width="1080" height="1080" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <span class="category">Bags</span>
+          <h3>Beige Quilted Drawstring Mini Backpack</h3>
+          <div class="price">¥340.00 <small>≈ US$47.22</small></div>
+          <p class="meta">Source item #154850 · Style 6302-1</p>
+          <a class="card-link" href="https://hipobuyfind.com/goods-154850.html">View source listing ↗</a>
+        </div>
+      </article>
+      <article class="card" data-category="Bags" data-price="300" data-id="154846">
+        <div class="photo"><img src="https://si.geilicdn.com/pcitem901921648802-198100000195895893e60a231316_939_939.jpg" alt="Multi-pocket flap backpack color collection" width="939" height="939" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <span class="category">Bags</span>
+          <h3>Multi-Pocket Flap Backpack Color Collection</h3>
+          <div class="price">¥300.00 <small>≈ US$41.67</small></div>
+          <p class="meta">Source item #154846 · Reference price</p>
+          <a class="card-link" href="https://hipobuyfind.com/goods-154846.html">View source listing ↗</a>
+        </div>
+      </article>
+    </div>
+    <p class="empty" id="empty" hidden>No products match. Try a broader search or choose all categories.</p>
+    <noscript><p>All six products and source links are available above. Enable JavaScript to filter or sort the selection.</p></noscript>
+    <div class="note">Prices and USD equivalents reproduce the source snapshot. They exclude unlisted shipping, service charges and taxes. Availability, options and final amounts must be checked on the destination listing. Images are hosted by the source image provider.</div>
+    <div class="actions"><a class="btn" href="https://hipobuyfind.com">LoveGoBuy spreadsheet ↗</a><a class="btn alt" href="https://hipobuyfind.com">Buy it now ↗</a></div>
+  </section>
+
+  <section id="guide" aria-labelledby="guide-title">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">From browsing to a checked shortlist</div>
+        <h2 id="guide-title">How to use this LoveGoBuy spreadsheet</h2>
+        <ol class="steps">
+          <li><strong>Start with the product type.</strong><p>Filter for shoes, hoodies, T-shirts, jackets or bags. Search a descriptive term or item number to locate a specific catalog entry.</p></li>
+          <li><strong>Open the source listing.</strong><p>Record the product ID and locate the original seller link. Confirm that the listing still matches the image and description you saved.</p></li>
+          <li><strong>Choose the exact option.</strong><p>Compare measurements, color, material and version. A photograph may show a different option from the one selected by default.</p></li>
+          <li><strong>Check the buying platform.</strong><p>If using LoveGoBuy, confirm link support and item eligibility in your account. Review the current order summary and return conditions before payment.</p></li>
+          <li><strong>Review before international shipment.</strong><p>Where warehouse inspection is available, compare the received item with your chosen option. Resolve discrepancies and confirm the parcel quote before approving dispatch.</p></li>
+        </ol>
+      </div>
+      <div class="box">
+        <h3>What to compare before buying</h3>
+        <div class="table-scroll">
+          <table>
+            <caption class="small">A reusable checklist for each product find</caption>
+            <thead><tr><th scope="col">Check</th><th scope="col">Record or verify</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Identity</th><td>Original seller URL, catalog ID and exact option.</td></tr>
+              <tr><th scope="row">Sizing</th><td>Garment or footwear measurements rather than the size label alone.</td></tr>
+              <tr><th scope="row">Evidence</th><td>Listing images versus inspection photos of the actual ordered item.</td></tr>
+              <tr><th scope="row">Condition</th><td>Visible defects, missing pieces, color and quantity.</td></tr>
+              <tr><th scope="row">Total cost</th><td>Items, domestic delivery, service costs, international freight and applicable taxes.</td></tr>
+              <tr><th scope="row">Returns</th><td>Seller deadlines and the platform's process before forwarding.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">These catalog photos are seller or source images. No warehouse QC photos have been independently verified for the six entries on this page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="budget" aria-labelledby="budget-title">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">Plan the whole purchase</div>
+        <h2 id="budget-title">Build a working budget.</h2>
+        <p>Use your own quotes to estimate the total. Enter each cost in CNY, then enter the exchange rate you expect to receive.</p>
+        <p class="small">Formula: (items + domestic delivery + service charges + international shipping + taxes/other costs) ÷ CNY per USD.</p>
+        <p class="small">This is an arithmetic planner, not a shipping quote. Zero-valued fields are placeholders and do not mean a cost is free. Include payment or currency-conversion charges in your inputs where relevant.</p>
+      </div>
+      <form class="box" id="budget-form">
+        <div class="calc-fields">
+          <label>Items total (CNY)<input id="items-cost" type="number" min="0" step="0.01" value="170" required></label>
+          <label>Domestic delivery (CNY)<input id="domestic-cost" type="number" min="0" step="0.01" value="0" required></label>
+          <label>Service charges (CNY)<input id="service-cost" type="number" min="0" step="0.01" value="0" required></label>
+          <label>International shipping (CNY)<input id="shipping-cost" type="number" min="0" step="0.01" value="0" required></label>
+          <label>Taxes / other costs (CNY)<input id="other-cost" type="number" min="0" step="0.01" value="0" required></label>
+          <label>CNY per US$1<input id="exchange-rate" type="number" min="0.01" step="0.01" value="7.20" required></label>
+        </div>
+        <p class="small">7.20 is an editable example rate, not a live exchange rate.</p>
+        <div class="total">Estimated total from your inputs<output id="budget-total" aria-live="polite">Enable JavaScript to calculate</output></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="eyebrow">Useful answers</div>
+    <h2 id="faq-title">LoveGoBuy spreadsheet FAQ</h2>
+    <details open><summary>Where do the buttons take me?</summary><p>The “LoveGoBuy spreadsheet” and “Buy it now” buttons both open https://hipobuyfind.com. Individual product links open their matching HipobuyFind detail pages. The buttons do not add a product to a cart or complete a purchase.</p></details>
+    <details><summary>Is this an official LoveGoBuy website?</summary><p>No. This is an independent product discovery page. It does not claim an official LoveGoBuy partnership and does not collect payment or manage orders.</p></details>
+    <details><summary>Are these real products from HipobuyFind?</summary><p>The six entries were taken from the public HipobuyFind catalog on 19 November 2026. Each includes the source item ID, original image URL and matching detail-page link. This is a selected static import, not a complete or continuously synchronized catalog.</p></details>
+    <details><summary>Are the prices live and is stock guaranteed?</summary><p>No. Prices are reference values from the dated snapshot. Sellers may change prices, withdraw listings or charge different amounts for different options. Confirm the current listing before paying.</p></details>
+    <details><summary>Can I order every item through LoveGoBuy?</summary><p>That has not been verified. Find the original marketplace listing and check that your chosen platform accepts its link, product type and selected option before proceeding.</p></details>
+    <details><summary>What is the difference between product images and QC photos?</summary><p>Product images illustrate the catalog listing. Quality-control or inspection photos document a particular received item. This page displays source catalog images and does not label them as verified warehouse QC.</p></details>
+    <details><summary>Does the listed price include international shipping?</summary><p>The displayed reference prices are item prices. Use a current platform quote for international shipping and account for domestic delivery, fees and applicable taxes when comparing your total.</p></details>
+    <details><summary>Do I need Excel or a Google account?</summary><p>No. The catalog and guide are readable directly in your browser. JavaScript adds local search, category filtering, sorting and the budget calculation.</p></details>
+  </section>
+
+  <section aria-label="Explore more finds">
+    <div class="bottom">
+      <div><h2>A shortlist worth checking.</h2><p>Continue to HipobuyFind for more product discovery and source details.</p></div>
+      <a class="btn" href="https://hipobuyfind.com">Buy it now ↗</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <p><strong>LoveGoBuy spreadsheet</strong> · Independent catalog guide · Source snapshot: 19 November 2026.</p>
+    <p>Product references and images: <a href="https://hipobuyfind.com">HipobuyFind</a>. Brand names belong to their respective owners. Listing inclusion does not establish authenticity, quality, seller reliability or platform acceptance. This page has no checkout, signup form or tracking script.</p>
+  </div>
+</footer>
+<script>
+(function(){
+  "use strict";
+  const grid=document.getElementById("products");
+  const cards=Array.from(grid.querySelectorAll(".card"));
+  const search=document.getElementById("search");
+  const category=document.getElementById("category");
+  const sort=document.getElementById("sort");
+  document.getElementById("tools").hidden=false;
+
+  function updateCatalog(){
+    const query=search.value.trim().toLowerCase();
+    const selected=category.value;
+    let count=0;
+    const ordered=cards.slice();
+    if(sort.value==="low") ordered.sort((a,b)=>Number(a.dataset.price)-Number(b.dataset.price));
+    if(sort.value==="high") ordered.sort((a,b)=>Number(b.dataset.price)-Number(a.dataset.price));
+    ordered.forEach(card=>{
+      const text=(card.textContent+" "+card.dataset.id).toLowerCase();
+      const matches=text.includes(query)&&(selected==="all"||card.dataset.category===selected);
+      card.hidden=!matches;
+      if(matches) count++;
+      grid.appendChild(card);
+    });
+    document.getElementById("result-count").textContent=count+" of "+cards.length+" products shown";
+    document.getElementById("empty").hidden=count!==0;
+  }
+  search.addEventListener("input",updateCatalog);
+  category.addEventListener("change",updateCatalog);
+  sort.addEventListener("change",updateCatalog);
+
+  const form=document.getElementById("budget-form");
+  const output=document.getElementById("budget-total");
+  const costIds=["items-cost","domestic-cost","service-cost","shipping-cost","other-cost"];
+  function calculate(){
+    const costs=costIds.map(id=>Number(document.getElementById(id).value));
+    const rate=Number(document.getElementById("exchange-rate").value);
+    const missing=Array.from(form.querySelectorAll("input")).some(input=>input.value.trim()==="");
+    if(missing||!form.checkValidity()||costs.some(n=>!Number.isFinite(n))||!Number.isFinite(rate)||rate<=0){
+      output.value="Enter valid amounts";
+      return;
+    }
+    output.value=new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(costs.reduce((sum,n)=>sum+n,0)/rate);
+  }
+  form.addEventListener("input",calculate);
+  form.addEventListener("submit",event=>event.preventDefault());
+  calculate();
+
+  document.querySelectorAll(".photo img").forEach(img=>{
+    img.addEventListener("error",()=>{
+      const message=document.createElement("p");
+      message.className="small";
+      message.style.padding="24px";
+      message.textContent="Source image unavailable. Open the source listing to view this item.";
+      img.replaceWith(message);
+    },{once:true});
+  });
+})();
+</script>
+</body>
+</html>
